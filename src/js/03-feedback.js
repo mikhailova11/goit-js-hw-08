@@ -14,16 +14,20 @@ const refs = {
     submit: document.querySelector('button'),
 };
 
+//target = элемент, вызвавший событие (клик). 
+//currentTarget = элемент, который имеет прослушиватель событий (форма). 
+
 refs.form.addEventListener('submit', onFormSubmit);
+saveData()
 
 refs.email.addEventListener('input', throttle((e) => {
-    localStorageDate.email=e.target.value;
+    localStorageDate.email = e.target.value;
     localStorage.setItem(storageDate, JSON.stringify(localStorageDate));
 }, 500));
 
 
 refs.message.addEventListener('input', throttle((e) => {
-    localStorageDate.message=e.target.value;
+    localStorageDate.message = e.target.value;
     localStorage.setItem(storageDate, JSON.stringify(localStorageDate));
 }, 500));
 
@@ -45,5 +49,6 @@ function saveData () {
         refs.email.value = localStorageDate.email;
         refs.message.value = localStorageDate.message;
     }
-    return;
-};
+}
+
+
